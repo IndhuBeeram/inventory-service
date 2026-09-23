@@ -102,6 +102,8 @@ public class OrderEventConsumer {
         reservedEvent.setOrderId(event.getOrderId());
         reservedEvent.setUserId(event.getUserId());
         reservedEvent.setReservedAt(LocalDateTime.now());
+        reservedEvent.setPaymentType(event.getPaymentType());
+        reservedEvent.setTotalAmount(event.getTotalAmount());
 
         List<InventoryReservedEvent.ReservedItem> items =
                 event.getItems()

@@ -1,5 +1,6 @@
 package com.ecom.inventory_service.event;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -7,8 +8,11 @@ public class InventoryReservedEvent {
 
     private Long orderId;
     private Long userId;
+    private BigDecimal totalAmount;
     private List<ReservedItem> items;
     private LocalDateTime reservedAt;
+    private PaymentType paymentType;
+    
 
     public InventoryReservedEvent() {
     }
@@ -29,6 +33,14 @@ public class InventoryReservedEvent {
         this.userId = userId;
     }
 
+    public BigDecimal getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(BigDecimal totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
     public List<ReservedItem> getItems() {
         return items;
     }
@@ -43,6 +55,14 @@ public class InventoryReservedEvent {
 
     public void setReservedAt(LocalDateTime reservedAt) {
         this.reservedAt = reservedAt;
+    }
+
+    public PaymentType getPaymentType() {
+        return paymentType;
+    }
+
+    public void setPaymentType(PaymentType paymentType) {
+        this.paymentType = paymentType;
     }
 
     public static class ReservedItem {
